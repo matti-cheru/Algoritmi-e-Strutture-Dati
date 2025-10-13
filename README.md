@@ -6,4 +6,5 @@ Elaborato Algoritmi e Strutture Dati A.A 2023/2024
     - Grafico tempi esecuzione vs # colonne
     - Grafico occupazione memoria vs # colonne
 - Quando utente preme di nuovo start, cancella tutti i risultati precedenti
-- Gestione eccezione Stop
+- Farli eseguire tutti i file
+
