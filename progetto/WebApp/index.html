@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+
+    <body>
+
+
+
+        
+<div id="mainContainer">
+ 
+    <div class="box">
+        <h1 id="title">MHS App</h1>
+        <form action="#" method="POST" id="myForm">
+            <input type="radio" id="start_btn" name="command" value="START">
+            <label for="stop_btn">Start</label><br>
+            <input type="radio" id="stop_btn" name="command" value="STOP">
+            <label for="stop_btn">Stop</label><br>
+            <button id="btnSubmit" type="submit">Invia</button>
+        </form>
+    </div>
+    <div class="ANSWContainer">
+        <div id="answDIV" style="font-family: monospace;">
+           
+        </div>
+        <div id="status"></div>
+      
+    </div> 
+ </div>
+
+
+
+        
+<script>
+
+    //const client = new Paho.MQTT.Client("192.168.1.145", 8001, "/ws", "clientId");
+    const client = new Paho.MQTT.Client("10.243.254.136", 9001, "clientId");
+    var selectedValue = null;
+    var command_code = null;
+    
+    document.getElementById("myForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        //Recupero i dati dal form
+        var commandName = document.getElementsByName("command");
+        
+
+        for (var i=0; i<commandName.length; i++){
+            if(commandName[i].checked){
+                selectedValue = commandName[i].value;
+                break;
+            }
+        }
+        console.log("Hai selezionato:", selectedValue);  
+        //Map in codice numero
+        command_code = map(selectedValue);
+
+    }); 
+     
+    //Connessione al broker MQTT 
+    client.connect({
+            onSuccess: function(){
+                console.log("Connesso al broker MQTT!");
+                client.subscribe("ANSWER"); 
+            },
+            onFailure: function(err) {
+                console.error("Connessione fallita:", err);
+            }
+        });
+
+         // set callback handlers
+         client.onConnectionLost = function (responseObject) {
+            console.log("Connection Lost: "+responseObject.errorMessage);
+        }
+
+        client.onMessageArrived = function(message) {
+            //Mostro la risposta nel web
+            const outputDIV = document.getElementById("answDIV");
+            const status = document.getElementById("status");
+           
+            //Trasformo in JSON
+            const payload = JSON.parse(message.payloadString)
+
+            const stato_corrente = payload['Stato corrente']; //RUNNING o STAND_BY
+            const esito = payload['esito'];
+
+        
+            //CAMBIO COLORE DELLO STATO 
+            switch(stato_corrente){
+                case "RUNNING":
+                    status.style.backgroundColor = "green";
+                    break;
+                case "STAND_BY":
+                    status.style.backgroundColor = "red";
+                    break;
+            }
+
+            outputDIV.textContent = 
+                "RISPOSTA OTTENUTA" + "\n\n" + 
+                "Stato corrente: "+ stato_corrente + "\n" +
+                "Esito risposta: " + esito + "\n\n";
+        };
+
+        
+
+    function sendMsg(){
+
+        const msg = {
+            codice_comando: command_code,
+        };
+    
+        //Converto in JSON
+        const json_msg = JSON.stringify(msg);
+        console.log(json_msg);
+
+        //Pubblicazione sul topic MESSAGGI
+        const mqttMessage = new Paho.MQTT.Message(json_msg);
+        mqttMessage.destinationName = "MESSAGGI";
+        client.send(mqttMessage);
+
+    }
+
+
+
+    function map(command_name){
+            var command_code = null;
+            if(command_name == "START"){
+                command_code = 1;
+            } else if(command_name == "STOP"){
+                command_code = 2;
+            }
+            return command_code;
+        }
+
+        // Intercettiamo l'invio del form
+        const form = document.getElementById("myForm");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // previene il reload della pagina
+                sendMsg(); // chiama la funzione
+            });
+</script>
+</body>
+</html>
