@@ -9,11 +9,11 @@
 ;;; Number of MHS: 0
 ;;; Min cardinality: 0
 ;;; Max cardinality: 0
-;;; Start time: Mon Oct 13 11:10:40 2025
-;;; End   time: Mon Oct 13 11:10:41 2025
-;;; Elapsed (s): 0.781736083998112
-;;; Peak memory (KB): 56
-;;; RSS (KB) at end: 22128
+;;; Start time: Tue Oct 14 11:40:30 2025
+;;; End   time: Tue Oct 14 11:40:32 2025
+;;; Elapsed (s): 1.811356624995824
+;;; Peak memory (KB): 6122
+;;; RSS (KB) at end: 51856
 ;;;
 ;;; Level statistics (H -> generated, checked):
 ;;;  H=0: generated=0, checked=1

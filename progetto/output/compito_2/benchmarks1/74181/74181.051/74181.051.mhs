@@ -1,21 +1,21 @@
-;;; Generated from 74181.029.matrix
+;;; Generated from 74181.051.matrix
 ;;; MHS computation
 ;;; Map 1(z1) 2(z2) 3(z3) 4(z4) 5(z5) 6(z6) 7(z7) 8(z8) 9(z9) 10(z10) 11(z11) 12(z12) 13(z13) 14(z14) 15(z15) 16(z16) 17(z17) 18(z18) 19(z19) 20(z20) 21(z21) 22(z22) 23(z23) 24(z24) 25(z25) 26(z26) 27(z27) 28(z28) 29(z29) 30(z30) 31(z31) 32(z32) 33(z33) 34(z34) 35(z35) 36(z36) 37(z37) 38(z38) 39(o1) 40(z39) 41(z40) 42(z41) 43(z42) 44(z43) 45(z44) 46(z45) 47(z46) 48(z47) 49(z48) 50(z49) 51(z50) 52(z51) 53(z52) 54(o2) 55(z53) 56(z54) 57(z55) 58(z56) 59(z57) 60(o3) 61(o4) 62(o5) 63(o6) 64(o7) 65(o8)
 ;;;
-;;; Input matrix size: 10 x 65
-;;; Reduced domain size (|M'|): 41
-;;; Removed empty columns (1-based): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15, 19, 20, 24, 25, 27, 41, 42, 43, 44, 45, 58, 62
-;;; H_max (exploration limit): 41
+;;; Input matrix size: 17 x 65
+;;; Reduced domain size (|M'|): 55
+;;; Removed empty columns (1-based): 1, 3, 4, 5, 22, 24, 25, 38, 43, 44
+;;; H_max (exploration limit): 55
 ;;; Number of MHS: 0
 ;;; Min cardinality: 0
 ;;; Max cardinality: 0
-;;; Start time: Tue Oct 14 11:40:11 2025
-;;; End   time: Tue Oct 14 11:40:11 2025
-;;; Elapsed (s): 0.8540321249747649
-;;; Peak memory (KB): 3086
-;;; RSS (KB) at end: 48384
+;;; Start time: Tue Oct 14 11:40:08 2025
+;;; End   time: Tue Oct 14 11:40:10 2025
+;;; Elapsed (s): 1.9067904999828897
+;;; Peak memory (KB): 3635
+;;; RSS (KB) at end: 48336
 ;;;
 ;;; Level statistics (H -> generated, checked):
 ;;;  H=0: generated=0, checked=1
-;;;  H=1: generated=41, checked=41
+;;;  H=1: generated=55, checked=55
 ;;;  H=2: generated=0, checked=0

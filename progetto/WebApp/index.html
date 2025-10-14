@@ -34,8 +34,17 @@
         
 <script>
 
-    //const client = new Paho.MQTT.Client("192.168.1.145", 8001, "/ws", "clientId");
-    const client = new Paho.MQTT.Client("10.243.254.136", 9001, "clientId");
+    function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+    const clientId = "client-" + generateUUID();
+    const hostname = window.location.hostname;
+    const client = new Paho.MQTT.Client(hostname, 9001, clientId);
+
     var selectedValue = null;
     var command_code = null;
     
@@ -62,7 +71,8 @@
     client.connect({
             onSuccess: function(){
                 console.log("Connesso al broker MQTT!");
-                client.subscribe("ANSWER"); 
+                //client.subscribe("ANSWER"); 
+                client.subscribe("ANSWER/" + clientId); 
             },
             onFailure: function(err) {
                 console.error("Connessione fallita:", err);
@@ -108,6 +118,7 @@
 
         const msg = {
             codice_comando: command_code,
+            GUID: clientId,
         };
     
         //Converto in JSON
