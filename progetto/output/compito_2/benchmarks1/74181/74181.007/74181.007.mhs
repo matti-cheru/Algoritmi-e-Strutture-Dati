@@ -1,17 +1,17 @@
-;;; Generated from 74181.006.matrix
+;;; Generated from 74181.007.matrix
 ;;; MHS computation
 ;;; Input matrix 2 X 65
 ;;; Number of MHS found: 1
 ;;; Minimum cardinality: 1
 ;;; Maximum cardinality: 1
-;;; Elapsed time: 0.01668554201023653s
-;;; Memory used: 43 KB
+;;; Elapsed time: 0.00043729200115194544s
+;;; Memory used: 2 KB
 ;;; Computation done without removing columns
 ;;; Computation completed successfully
 ;;;
 ;;; Hypotesis generated for each level:
 ;;; Level 0: 0 hypoteses
-;;; Level 1: 17 hypoteses
+;;; Level 1: 5 hypoteses
 ;;; Level 2: 0 hypoteses
 ;;;
 ;;; Map 
