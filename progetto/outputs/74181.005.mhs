@@ -4,8 +4,8 @@
 ;;; Number of MHS found: 10
 ;;; Minimum cardinality: 1
 ;;; Maximum cardinality: 1
-;;; Elapsed time: 0.12193345900232089s
-;;; Memory used: 464 KB
+;;; Elapsed time: 0.17019991699999082s
+;;; Memory used: 899 KB
 ;;; Computation done removing the columns: [1, 2, 4, 10, 11, 13, 14, 16, 17, 18, 20, 21, 22, 23, 25, 26, 31, 33, 37, 38, 39, 40, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 59, 60, 61, 63, 64, 65]
 ;;; -> The dimensions of the matrix really used are 4 X 26
 ;;; Computation completed successfully

@@ -4,8 +4,8 @@
 ;;; Number of MHS found: 7
 ;;; Minimum cardinality: 1
 ;;; Maximum cardinality: 1
-;;; Elapsed time: 0.10387408400129061s
-;;; Memory used: 2681 KB
+;;; Elapsed time: 0.10153583400096977s
+;;; Memory used: 1246 KB
 ;;; Computation done without removing columns
 ;;; Computation completed successfully
 ;;;
